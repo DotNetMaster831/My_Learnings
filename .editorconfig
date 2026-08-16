@@ -1,0 +1,37 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.{json,yml,yaml,xml,csproj,props}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.cs]
+# Usings
+dotnet_sort_system_directives_first = true
+csharp_using_directive_placement = outside_namespace:warning
+
+# Modern C#
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_style_var_when_type_is_apparent = true:suggestion
+dotnet_style_readonly_field = true:warning
+dotnet_style_require_accessibility_modifiers = always:warning
+
+# Nullability
+dotnet_diagnostic.CS8600.severity = error
+dotnet_diagnostic.CS8602.severity = error
+dotnet_diagnostic.CS8618.severity = error
+
+# Async discipline — the UI-thread rule from Phase 04
+dotnet_diagnostic.CA2007.severity = warning   # ConfigureAwait
+dotnet_diagnostic.VSTHRD002.severity = error  # no .Result / .Wait()
+dotnet_diagnostic.VSTHRD103.severity = error  # sync method when async exists
+dotnet_diagnostic.VSTHRD200.severity = suggestion

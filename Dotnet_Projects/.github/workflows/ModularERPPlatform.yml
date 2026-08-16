@@ -1,0 +1,53 @@
+name: build
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'source/Modular ERP Platform/**'
+      - '.github/workflows/ModularERPPlatform.yml'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'source/Modular ERP Platform/**'
+      - '.github/workflows/ModularERPPlatform.yml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            6.0.x
+            7.0.x
+            8.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore source/Modular ERP Platform/ModularERPPlatform.sln
+
+      - name: Build
+        run: dotnet build source/Modular ERP Platform/ModularERPPlatform.sln --no-restore -c Release
+
+      - name: Unit tests
+        run: >
+         dotnet test source/Modular ERP Platform/Tests/UnitTests
+         --no-build -c Release 
+         --collect "XPlat Code Coverage"
+
+      - name: Architecture fitness tests
+        run: >
+         dotnet test source/Modular ERP Platform/Tests/ArchitectureTests
+         --no-build -c Release
+
+      - name: Coverage gate
+        run: |
+          dotnet tool install --global dotnet-reportgenerator-globaltool
+          reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:TextSummary
+          Get-Content coverage/Summary.txt
+        shell: pwsh
+

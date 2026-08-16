@@ -1,0 +1,36 @@
+services:
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: Dotnet_Projects-rabbitmq
+        ports:
+            - "5672:5672" # AMQP port
+            - "15672:15672" # Management UI port
+        environment:
+            RABBITMQ_DEFAULT_USER: dev
+            RABBITMQ_DEFAULT_PASS: dev
+        volumes:
+            - rabbitmq_data:/var/lib/rabbitmq
+
+    loki:
+        image: grafana/loki:latest
+        container_name: Dotnet_Projects-loki
+        ports:
+            - "3100:3100"
+        command: -config.file=/etc/loki/local-config.yaml
+
+    grafana:
+        image: grafana/grafana:latest
+        container_name: Dotnet_Projects-grafana
+        ports:
+            - "3000:3000"
+        environment:
+            GF_AUTH_ANONYMOUS_ENABLED: "true"
+            GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+        depends_on:
+            - loki
+        volumes:
+            - grafana_data:/var/lib/grafana
+
+volumes:
+    rabbitmq_data:
+    grafana_data:

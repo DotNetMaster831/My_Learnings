@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/Client/">
+    <Project Path="Client/ModularERPPlatform.Shell.Wpf/ModularERPPlatform.Shell.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/Contracts/">
+    <Project Path="Contracts/ModularERPPlatform.Events/ModularERPPlatform.Events.csproj" />
+  </Folder>
+  <Folder Name="/Kernel/">
+    <Project Path="Kernel/ModularERPPlatform.Kernel.Contracts/ModularERPPlatform.Kernel.Contracts.csproj" />
+    <Project Path="Kernel/ModularERPPlatform.Kernel.Security/ModularERPPlatform.Kernel.Security.csproj" />
+    <Project Path="Kernel/ModularERPPlatform.Kernel/ModularERPPlatform.Kernel.csproj" />
+  </Folder>
+  <Folder Name="/Messaging/">
+    <Project Path="Messaging/ModularERPPlatform.Messaging.Abstraction/ModularERPPlatform.Messaging.Abstraction.csproj" />
+    <Project Path="Messaging/ModularERPPlatform.Messaging.RabbitMq/ModularERPPlatform.Messaging.RabbitMq.csproj" />
+  </Folder>
+  <Folder Name="/Modules/" />
+  <Folder Name="/Modules/Finance/">
+    <Project Path="Modules/Finance/ModularERPPlatform.Finance.Application/ModularERPPlatform.Finance.Application.csproj" />
+    <Project Path="Modules/Finance/ModularERPPlatform.Finance.Domain/ModularERPPlatform.Finance.Domain.csproj" />
+    <Project Path="Modules/Finance/ModularERPPlatform.Finance.Infrastructure/ModularERPPlatform.Finance.Infrastructure.csproj" />
+    <Project Path="Modules/Finance/ModularERPPlatform.Finance.Ui/ModularERPPlatform.Finance.Ui.csproj" />
+  </Folder>
+  <Folder Name="/Tests/" />
+  <Folder Name="/Tests/ArchitectureTests/">
+    <Project Path="Tests/ArchitectureTests/ModularERPPlatform.ArchitectureTests/ModularERPPlatform.ArchitectureTests.csproj" />
+  </Folder>
+  <Folder Name="/Tests/IntegrationTests/">
+    <Project Path="Tests/IntegrationTests/ModularERPPlatform.IntegrationTests/ModularERPPlatform.IntegrationTests.csproj" />
+  </Folder>
+  <Folder Name="/Tests/UnitTests/">
+    <Project Path="Tests/UnitTests/ModularERPPlatform.Kernel.UnitTests/ModularERPPlatform.Kernel.UnitTests.csproj" />
+  </Folder>
+</Solution>
