@@ -1,4 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.11" />
+  </ItemGroup>
+  <PropertyGroup>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+  <!-- Let the SDK auto-include App.xaml for WPF projects to avoid duplicate ApplicationDefinition entries -->
 
   <ItemGroup>
     <ProjectReference Include="..\..\Kernel\ModularERPPlatform.Kernel\ModularERPPlatform.Kernel.csproj" />
@@ -14,4 +25,5 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <!-- Sample plugin staging removed because samples are not stored in the expected location in this workspace. -->
 </Project>
