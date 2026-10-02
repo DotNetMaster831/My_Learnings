@@ -1,0 +1,9 @@
+{
+  "id": "sample",
+  "displayName": "Sample Module",
+  "version": "1.0.0",
+  "assemblyFile": "ModularERP.SamplePlugin.dll",
+  "requiredKernelVersion": ">=1.0.0 <2.0.0",
+  "dependencies": [],
+  "requiredPermissions": [ "Sample.Read" ]
+}
